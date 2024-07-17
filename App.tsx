@@ -1,21 +1,18 @@
 
 import React from 'react';
-import type { PropsWithChildren } from 'react';
 import {
   StyleSheet,
 } from 'react-native';
-
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import SplashScreen from './Components/Splashscreen';
 
 
 
 function App(): React.JSX.Element {
 
   return (
-    <></>
+    <>
+      <SplashScreen />
+    </>
   );
 }
 
