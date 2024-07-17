@@ -1,3 +1,5 @@
+// src/screens/SplashScreen.js
+
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';

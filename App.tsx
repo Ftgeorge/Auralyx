@@ -4,6 +4,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import SplashScreen from './Components/Splashscreen';
+import { AuthStack } from './Components/Stacks/AuthStack';
 
 
 
@@ -11,7 +12,7 @@ function App(): React.JSX.Element {
 
   return (
     <>
-      <SplashScreen />
+      <AuthStack/>
     </>
   );
 }

@@ -1,21 +1,35 @@
-
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import * as React from 'react';
 import SplashScreen from '../Splashscreen';
 import MainStack from './MainStack';
 
-const Stack = createStackNavigator();
 
-const AuthStack = () => {
+type RootStackParamList = {
+    SplashScreen: undefined;
+    MainScreen: undefined;
+};
+
+type Props = NativeStackScreenProps<RootStackParamList>;
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+export const AuthStack = (): JSX.Element => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="SplashScreen" component={SplashScreen} />
-                <Stack.Screen name="MainScreen" component={MainStack} />
+            <Stack.Navigator
+                screenOptions={{
+                    headerShown: false,
+                    presentation: 'modal',
+                    animationTypeForReplace: 'push',
+                    animation: 'slide_from_right',
+                }}>
+                <>
+                    <Stack.Screen name='SplashScreen' component={SplashScreen} />
+                    <Stack.Screen name='MainScreen' component={MainStack} />
+                </>
             </Stack.Navigator>
         </NavigationContainer>
     );
 };
-
-export default AuthStack;
