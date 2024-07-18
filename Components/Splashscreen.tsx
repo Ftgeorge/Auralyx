@@ -21,7 +21,7 @@ const SplashScreen = () => {
     return (
         <View style={styles.container}>
             <Animated.Text style={[styles.text, { opacity }]}>
-                Auralyx
+                auralyx
             </Animated.Text>
         </View>
     );
@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#111',
     },
     text: {
         fontSize: 40,
         fontWeight: 'bold',
-        color: '#000',
+        color: '#fff',
     },
 });
 
