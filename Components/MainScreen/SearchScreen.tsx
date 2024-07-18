@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#111',
     paddingVertical: '5%',
-    height: height,
-    width: width
+    height: height * 1,
+    width: width * 1
   },
   text: {
     fontSize: 20,
