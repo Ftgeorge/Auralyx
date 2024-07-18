@@ -9,8 +9,13 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Featured</Text>
-        <Icon name="search" size={20} color="white"/>
+        <Icon name="search" size={20} color="white" />
       </View>
+      <View style={styles.MusicFeatureCardContainer}></View>
+      <View style={styles.TextContainer}>
+        <Text style={[styles.headerText, { marginTop: '10%' , marginBottom:'5%'}]}>Playlists for you</Text>
+      </View>
+      <View style={styles.PlayListsCardsContainer}></View>
     </View>
   );
 };
@@ -30,16 +35,34 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     width: width * 1,
-    height: height * 0.1,
+    height: height * 0.05,
     paddingHorizontal: '5%',
     flexDirection: 'row',
-    justifyContent:'space-between',
-    alignItems:'flex-start',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   headerText: {
-    fontSize: 26,
+    fontSize: 24,
     color: 'white',
-    fontWeight: 'bold'
+  },
+  MusicFeatureCardContainer: {
+    width: width * 1,
+    paddingLeft: '5%',
+    paddingRight: '1%',
+    height: height * 0.4,
+    backgroundColor: 'red'
+  },
+  PlayListsCardsContainer: {
+    width: width * 1,
+    paddingLeft: '5%',
+    height: height * 0.15,
+    backgroundColor: 'blue'
+  },
+  TextContainer: {
+    width: width * 1,
+    paddingHorizontal: '5%',
+    justifyContent:'flex-start',
+    alignItems: 'flex-start'
   }
 });
 
