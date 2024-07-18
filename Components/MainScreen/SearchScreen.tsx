@@ -4,6 +4,11 @@ import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 
 const { width, height } = Dimensions.get('window');
 
 const SearchScreen = () => {
+
+  const initiateSearch = () => {
+
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
@@ -11,8 +16,8 @@ const SearchScreen = () => {
           placeholderTextColor="#555"
           placeholder='Search here'
           style={styles.searchInput} />
-        <TouchableOpacity >
-          <Text>Search</Text>
+        <TouchableOpacity onPress={initiateSearch} style={styles.searchButton}>
+          <Text style={styles.buttonText}>Search</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -21,10 +26,12 @@ const SearchScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#111',
+    paddingVertical: '5%',
+    height: height,
+    width: width
   },
   text: {
     fontSize: 20,
@@ -34,27 +41,28 @@ const styles = StyleSheet.create({
     width: width * 1,
     paddingHorizontal: '5%',
     flexDirection: 'row',
-    gap: 20
+    gap: 15
   },
   searchButton: {
     width: width * 0.2,
-    height: height * 0.08,
+    height: height * 0.06,
     borderRadius: 10,
     backgroundColor: '#333',
     justifyContent: 'center',
     alignItems: 'center'
   },
   searchInput: {
-    width: width * 0.65,
-    height: height * 0.08,
+    width: width * 0.66,
+    height: height * 0.06,
     borderRadius: 10,
     backgroundColor: '#222',
-    padding: '2%'
+    paddingHorizontal: '5%',
+    fontSize: 16,
   },
   buttonText: {
     color: 'white',
-    fontSize: 18,
-    fontWeight: 500
+    fontSize: 16,
+    // fontWeight: 500
   }
 });
 
