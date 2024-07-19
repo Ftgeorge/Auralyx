@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MusicFeaturesCardComponent from '../Widgets/MusicFeaturesCardComponent';
+import HomeSubHeader from '../Widgets/HomeSubHeader';
 // import MusicFeaturesCardComponent from './MusicFeaturesCardComponent'; // Adjust the path as necessary
 
 const { width, height } = Dimensions.get('window');
@@ -10,9 +11,10 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Featured</Text>
-        <Icon name="search" size={20} color="white" />
+        <Text style={styles.headerText}>Good morning moods</Text>
+        <Icon name="search" size={18} color="white" />
       </View>
+      <HomeSubHeader/>
       <View style={styles.MusicFeatureCardContainer}>
         <MusicFeaturesCardComponent />
       </View>

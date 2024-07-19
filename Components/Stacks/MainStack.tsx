@@ -47,14 +47,14 @@ const MainStack = () => {
                         <Icon name="music" color={focused ? 'white' : '#222'} size={size} />
                     )
                 }} />
-            <Tab.Screen name="Profile" component={ProfileScreen}
+            {/* <Tab.Screen name="Profile" component={ProfileScreen}
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ color, size, focused }) => (
                         <Icon name="user" color={focused ? 'white' : '#222'} size={size} />
                     )
                 }}
-            />
+            /> */}
         </Tab.Navigator>
     );
 };
