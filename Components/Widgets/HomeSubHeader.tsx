@@ -46,11 +46,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     headerText: {
-        fontSize: 13,
+        fontSize: 12,
         color: 'white',
     },
     subHeaderText: {
-        fontSize: 11,
+        fontSize: 10,
         color: 'white'
     },
     textContainer: {

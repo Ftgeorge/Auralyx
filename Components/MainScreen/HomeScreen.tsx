@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MusicFeaturesCardComponent from '../Widgets/MusicFeaturesCardComponent';
 import HomeSubHeader from '../Widgets/HomeSubHeader';
+import HitMusicComponent from '../Widgets/HitMusicComponent';
+import MoodBoosterComponent from '../Widgets/MoodBoosterComponent';
 // import MusicFeaturesCardComponent from './MusicFeaturesCardComponent'; // Adjust the path as necessary
 
 const { width, height } = Dimensions.get('window');
@@ -14,16 +16,12 @@ const HomeScreen = () => {
         <Text style={styles.headerText}>Good morning moods</Text>
         <Icon name="search" size={18} color="white" />
       </View>
-      <HomeSubHeader/>
+      <HomeSubHeader />
       <View style={styles.MusicFeatureCardContainer}>
         <MusicFeaturesCardComponent />
       </View>
-      <View style={styles.TextContainer}>
-        <Text style={[styles.headerText, { marginTop: '10%', marginBottom: '5%' }]}>
-          Playlists for you
-        </Text>
-      </View>
-      <View style={styles.PlayListsCardsContainer}></View>
+      <HitMusicComponent />
+      <MoodBoosterComponent />
     </View>
   );
 };
@@ -57,7 +55,7 @@ const styles = StyleSheet.create({
     width: width,
     paddingLeft: '5%',
     paddingRight: '1%',
-    height: height * 0.4,
+    height: height * 0.1,
   },
   PlayListsCardsContainer: {
     width: width,
