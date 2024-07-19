@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
         height: '100%',
         flexDirection: 'column',
         justifyContent:'center',
-        paddingHorizontal:'3%'
+        paddingHorizontal:'3%',
+        borderRadius:5
     },
     image: {
         width: width * 0.16,

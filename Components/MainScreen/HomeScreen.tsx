@@ -17,9 +17,6 @@ const HomeScreen = () => {
         <Icon name="search" size={18} color="white" />
       </View>
       <HomeSubHeader />
-      <View style={styles.MusicFeatureCardContainer}>
-        <MusicFeaturesCardComponent />
-      </View>
       <HitMusicComponent />
       <MoodBoosterComponent />
     </View>
@@ -40,7 +37,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   headerContainer: {
-    width: width,
+    width: width ,
     height: height * 0.05,
     paddingHorizontal: '5%',
     flexDirection: 'row',

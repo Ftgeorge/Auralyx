@@ -1,9 +1,11 @@
 
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 const HitMusicComponent = () => {
+    const navigation = useNavigation();
 
     const TrackContainer = [
         {
@@ -40,19 +42,21 @@ const HitMusicComponent = () => {
     ];
 
     return (
-        <View>
+        <View style={{ height: height * 0.35 }}>
             <View style={styles.headerTextContainer}>
                 <Text style={styles.DescriptionText}>Hit Music</Text>
-                <Text style={styles.moreOptions}>See all</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('MoreOptions' as never)}>
+                    <Text style={styles.moreOptions}>See all</Text>
+                </TouchableOpacity>
             </View>
             <ScrollView horizontal contentContainerStyle={styles.container}>
                 {TrackContainer.map((item, value) => (
-                    <View key={value} style={styles.trackContainer}>
+                    <TouchableOpacity onPress={()=> navigation.navigate('HitMusicMoreOptions' as never)} key={value} style={styles.trackContainer}>
                         <Image source={item.image} style={styles.image} />
                         <View style={styles.textContainer}>
                             <Text style={styles.headerText}>{item.headerText}</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 ))}
             </ScrollView>
         </View>
@@ -66,12 +70,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         paddingHorizontal: '5%',
         flexDirection: 'row',
-        gap:20
+        gap: 20
     },
     headerText: {
         fontSize: 18,
         color: 'white',
-        fontWeight: 'bold'
     },
     subHeaderText: {
         fontSize: 10,

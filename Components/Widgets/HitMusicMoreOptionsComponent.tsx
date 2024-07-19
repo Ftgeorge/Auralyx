@@ -3,9 +3,11 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native';
 const { width, height } = Dimensions.get('window');
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const MoodBoosterComponent = () => {
+const HitMusicMoreOptions = () => {
     const navigation = useNavigation();
+
     const TrackContainer = [
         {
             image: require('../../Components/assets/images/getstarted.png'),
@@ -41,19 +43,23 @@ const MoodBoosterComponent = () => {
     ];
 
     return (
-        <View style={{ height: height * 0.35 }}>
+        <View style={{ height: height, backgroundColor: '#111' }}>
             <View style={styles.headerTextContainer}>
-                <Text style={styles.DescriptionText}>Moodbooster</Text>
-                <Text style={styles.moreOptions}>See all</Text>
+                <TouchableOpacity onPress={()=> navigation.goBack()}>
+                    <Ionicons name="chevron-back" size={18} color="white" />
+                </TouchableOpacity>
+                <Text style={styles.DescriptionText}>Japanese Street</Text>
             </View>
-            <ScrollView horizontal contentContainerStyle={styles.container}>
+            <ScrollView contentContainerStyle={styles.container}>
                 {TrackContainer.map((item, value) => (
-                    <TouchableOpacity onPress={()=> navigation.navigate('MoodBoosterMoreOptions' as never)} key={value} style={styles.trackContainer}>
+                    <View key={value} style={styles.trackContainer}>
                         <Image source={item.image} style={styles.image} />
                         <View style={styles.textContainer}>
                             <Text style={styles.headerText}>{item.headerText}</Text>
+                            <Text style={styles.subHeaderText}>{item.subHeaderText}</Text>
                         </View>
-                    </TouchableOpacity>
+                    </View>
+
                 ))}
             </ScrollView>
         </View>
@@ -62,36 +68,36 @@ const MoodBoosterComponent = () => {
 
 const styles = StyleSheet.create({
     container: {
-        height: height * 0.25,
-        justifyContent: 'space-evenly',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         paddingHorizontal: '5%',
-        flexDirection: 'row',
-        gap: 20
+        width: width,
+        // justifyContent:'space-evenly'
     },
     headerText: {
-        fontSize: 18,
+        fontSize: 20,
         color: 'white',
     },
     subHeaderText: {
-        fontSize: 10,
-        color: 'white'
+        fontSize: 17,
+        color: '#555'
     },
     textContainer: {
-        width: width * 0.4,
+        width: '100%',
+        height: '100%',
         flexDirection: 'column',
         justifyContent: 'center',
-        paddingVertical: '5%'
+        paddingHorizontal: '3%'
     },
     image: {
-        width: width * 0.4,
-        height: height * 0.2,
+        width: width * 0.16,
+        height: height * 0.08,
     },
     trackContainer: {
-        width: width * 0.4,
-        height: height * 0.2,
-        flexDirection: 'column',
-        backgroundColor: '#222'
+        width: '100%',
+        height: height * 0.08,
+        flexDirection: 'row',
+        backgroundColor: '#111',
+        marginVertical: '2.5%'
     },
     DescriptionText: {
         fontSize: 24,
@@ -104,11 +110,12 @@ const styles = StyleSheet.create({
     },
     headerTextContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         marginVertical: '5%',
-        paddingHorizontal: '5%'
+        paddingHorizontal: '5%',
+        gap: 20
     }
 });
 
-export default MoodBoosterComponent;
+export default HitMusicMoreOptions;
