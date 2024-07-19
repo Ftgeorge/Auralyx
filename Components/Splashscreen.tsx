@@ -14,7 +14,7 @@ const SplashScreen = () => {
             duration: 3000,
             useNativeDriver: true,
         }).start(() => {
-            navigation.navigate('MainScreen' as never);
+            navigation.navigate('GetStarted' as never);
         });
     }, [opacity, navigation]);
 
