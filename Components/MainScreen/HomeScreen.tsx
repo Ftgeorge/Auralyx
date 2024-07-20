@@ -10,6 +10,7 @@ import MoodBoosterComponent from '../Widgets/MoodBoosterComponent';
 const { width, height } = Dimensions.get('window');
 
 const HomeScreen = () => {
+  
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
