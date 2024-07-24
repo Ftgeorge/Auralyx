@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MusicFeaturesCardComponent from '../Widgets/MusicFeaturesCardComponent';
@@ -10,11 +10,36 @@ import MoodBoosterComponent from '../Widgets/MoodBoosterComponent';
 const { width, height } = Dimensions.get('window');
 
 const HomeScreen = () => {
-  
+
+  const [currentTime, setCurrentTime] = useState<string>("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let timeOfDay;
+      const hour = new Date().getHours();
+
+      if (hour >= 0 && hour < 5) {
+        timeOfDay = "🌙 Late Night Vibes";
+      } else if (hour >= 5 && hour < 12) {
+        timeOfDay = "☀️ Morning Grooves";
+      } else if (hour >= 12 && hour < 17) {
+        timeOfDay = "🎵 Afternoon Tunes";
+      } else if (hour >= 17 && hour < 20) {
+        timeOfDay = "🌇 Evening Chill";
+      } else {
+        timeOfDay = "🌃 Night Beats";
+      }
+
+
+      setCurrentTime(timeOfDay);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Good morning moods</Text>
+        <Text style={styles.headerText}>{currentTime}</Text>
         <Icon name="search" size={18} color="white" />
       </View>
       <HomeSubHeader />
@@ -38,7 +63,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   headerContainer: {
-    width: width ,
+    width: width,
     height: height * 0.05,
     paddingHorizontal: '5%',
     flexDirection: 'row',

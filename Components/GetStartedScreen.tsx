@@ -19,12 +19,12 @@ const GetStartedScreen = () => {
                     <Text style={styles.productName}>auralyx</Text>
                     <View style={styles.bottomContainer}>
                         <Text style={styles.IntroName}>
-                        Unleash Your Inner Musician and Embrace the Rhythm
+                            Unleash Your Inner Musician and Embrace the Rhythm
                         </Text>
                         <Text style={styles.introText}>
-                        Discover amazing new artists, craft your perfect playlists, and let the music elevate your soul.
+                            Discover amazing new artists, craft your perfect playlists, and let the music elevate your soul.
                         </Text>
-                        <TouchableOpacity onPress={()=> navigation.navigate('MainScreen' as never)} style={styles.button}>
+                        <TouchableOpacity onPress={() => navigation.navigate('MainScreen' as never)} style={styles.button}>
                             <Text style={styles.buttonText}>Get Started</Text>
                         </TouchableOpacity>
                     </View>
@@ -54,21 +54,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: width,
-        height: height
+        height: height,
     },
     productName: {
         fontSize: 32,
         fontWeight: 'bold',
         color: 'white',
         marginBottom: '5%',
-        textAlign:'center'
+        textAlign: 'center'
     },
     IntroName: {
         fontSize: 26,
         fontWeight: 'bold',
         color: 'white',
         marginBottom: '5%',
-        textAlign:'center'
+        textAlign: 'center'
     },
     introText: {
         fontSize: 16,
@@ -78,11 +78,11 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#E59866',
-        width: width*0.9,
-        height: height *0.07,
-        borderRadius: 25,
-        justifyContent:'center',
-        alignItems:'center'
+        width: width * 0.9,
+        height: height * 0.07,
+        borderRadius: 99,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     buttonText: {
         color: 'white',
@@ -90,7 +90,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     bottomContainer: {
-
+        width: width,
+        height: height * 0.3,
+        justifyContent:'center',
+        alignItems:'center',
+        paddingHorizontal:'5%'
     }
 });
 
