@@ -44,7 +44,7 @@ const HitMusicComponent = () => {
     return (
         <View style={{ height: height * 0.35 }}>
             <View style={styles.headerTextContainer}>
-                <Text style={styles.DescriptionText}>Hit Music</Text>
+                <Text style={styles.DescriptionText}>🔥 Hit Music</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('MoreOptions' as never)}>
                     <Text style={styles.moreOptions}>See all</Text>
                 </TouchableOpacity>

@@ -43,7 +43,7 @@ const MoodBoosterComponent = () => {
     return (
         <View style={{ height: height * 0.35 }}>
             <View style={styles.headerTextContainer}>
-                <Text style={styles.DescriptionText}>Moodbooster</Text>
+                <Text style={styles.DescriptionText}>🌟 Mood Booster</Text>
                 <Text style={styles.moreOptions}>See all</Text>
             </View>
             <ScrollView horizontal contentContainerStyle={styles.container}>
