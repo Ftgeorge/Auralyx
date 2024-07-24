@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native';
 const { width, height } = Dimensions.get('window');
+import Octicons from 'react-native-vector-icons/Octicons';
 
 const SearchScreen = () => {
 
@@ -17,7 +18,7 @@ const SearchScreen = () => {
           placeholder='Search here'
           style={styles.searchInput} />
         <TouchableOpacity onPress={initiateSearch} style={styles.searchButton}>
-          <Text style={styles.buttonText}>Search</Text>
+        <Octicons name="search" color={'white'} size={24} />
         </TouchableOpacity>
       </View>
     </View>
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     gap: 15
   },
   searchButton: {
-    width: width * 0.2,
+    width: width * 0.15,
     height: height * 0.06,
     borderRadius: 10,
     backgroundColor: '#333',
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   searchInput: {
-    width: width * 0.66,
+    width: width * 0.7 ,
     height: height * 0.06,
     borderRadius: 10,
     backgroundColor: '#222',

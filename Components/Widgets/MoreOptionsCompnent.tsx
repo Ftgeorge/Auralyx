@@ -1,13 +1,36 @@
 
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const MoreOptions = () => {
     const navigation = useNavigation();
+    const [currentTime, setCurrentTime] = useState<string>("");
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            let timeOfDay;
+            const hour = new Date().getHours();
+
+            if (hour >= 0 && hour < 5) {
+                timeOfDay = "late night vibes";
+            } else if (hour >= 5 && hour < 12) {
+                timeOfDay = "morning grooves";
+            } else if (hour >= 12 && hour < 17) {
+                timeOfDay = "afternoon tunes";
+            } else if (hour >= 17 && hour < 20) {
+                timeOfDay = "evening chill";
+            } else {
+                timeOfDay = "night beats";
+            }
+
+
+            setCurrentTime(timeOfDay);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
     const TrackContainer = [
         {
             image: require('../../Components/assets/images/getstarted.png'),
@@ -44,12 +67,22 @@ const MoreOptions = () => {
 
     return (
         <View style={{ height: height, backgroundColor: '#111' }}>
-            <View style={styles.headerTextContainer}>
-                <TouchableOpacity onPress={()=> navigation.goBack()}>
-                    <Ionicons name="chevron-back" size={18} color="white" />
-                </TouchableOpacity>
-                <Text style={styles.DescriptionText}>Hit Music</Text>
-            </View>
+            <ImageBackground source={require('../../Components/assets/images/getstarted.png')} style={styles.headerTextContainer}>
+                <View style={[styles.headerTextContainer, { backgroundColor: 'rgba(0,0,0,0.7)', width: width * 1, paddingHorizontal: '5%', justifyContent: 'space-evenly' }]}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Ionicons name="chevron-back" size={20} color="white" style={{ marginBottom: '8%' }} />
+                    </TouchableOpacity>
+
+                    <View>
+                        <Text style={[styles.DescriptionText, { color: '#999', fontSize: 15 }]}>Hit Music</Text>
+                        <Text style={[styles.DescriptionText, { fontSize: 35 }]}>Songs</Text>
+                        <Text style={[styles.DescriptionText, { fontSize: 15, color: '#999' }]}>{currentTime} - {TrackContainer.length} songs</Text>
+                    </View>
+                    <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'flex-end', bottom:-10 }}>
+                        <View style={{ width: width * 0.05, height: height * 0.05, borderRadius: 99, backgroundColor: 'red' }} />
+                    </View>
+                </View>
+            </ImageBackground>
             <ScrollView contentContainerStyle={styles.container}>
                 {TrackContainer.map((item, value) => (
                     <View key={value} style={styles.trackContainer}>
@@ -59,7 +92,6 @@ const MoreOptions = () => {
                             <Text style={styles.subHeaderText}>{item.subHeaderText}</Text>
                         </View>
                     </View>
-
                 ))}
             </ScrollView>
         </View>
@@ -71,7 +103,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: '5%',
         width: width,
-        // justifyContent:'space-evenly'
     },
     headerText: {
         fontSize: 20,
@@ -100,7 +131,7 @@ const styles = StyleSheet.create({
         marginVertical: '2.5%'
     },
     DescriptionText: {
-        fontSize: 24,
+        fontSize: 15,
         color: 'white',
     },
     moreOptions: {
@@ -109,12 +140,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     headerTextContainer: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        marginVertical: '5%',
-        paddingHorizontal: '5%',
-        gap: 20
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        height: height * 0.3
     }
 });
 

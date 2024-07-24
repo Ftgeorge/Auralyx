@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     },
     moreOptions: {
         color: '#555',
-        fontSize: 17,
+        fontSize: 13,
         fontWeight: 'bold'
     },
     headerTextContainer: {
