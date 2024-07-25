@@ -72,7 +72,6 @@ const MoreOptions = () => {
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <Ionicons name="chevron-back" size={20} color="white" style={{ marginBottom: '8%' }} />
                     </TouchableOpacity>
-
                     <View>
                         <Text style={[styles.DescriptionText, { color: '#999', fontSize: 15 }]}>Hit Music</Text>
                         <Text style={[styles.DescriptionText, { fontSize: 35 }]}>Songs</Text>
